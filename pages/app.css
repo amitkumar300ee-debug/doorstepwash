@@ -10,7 +10,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html{scroll-behavior:smooth}
-body{font-family:var(--font);background:var(--bg);color:var(--dark);max-width:480px;margin:0 auto;min-height:100vh;overflow-x:hidden;padding-bottom:var(--bottom-h)}
+body{font-family:var(--font);background:var(--bg);color:var(--dark);width:100%;margin:0 auto;min-height:100vh;overflow-x:hidden;padding-bottom:var(--bottom-h)}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:var(--font);border:none}
 ::-webkit-scrollbar{display:none}
