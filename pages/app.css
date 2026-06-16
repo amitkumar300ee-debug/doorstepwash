@@ -498,4 +498,12 @@ textarea.fc{resize:vertical;min-height:78px}
 .drawer-contact{padding:14px 20px 10px;background:var(--bg);border-top:1px solid var(--border)}
 .drawer-contact h4{font-size:.65rem;font-weight:800;color:var(--gray2);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
 .drawer-contact a{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--dark);font-weight:600;padding:5px 0;text-decoration:none}
+html,
+body{
+  overflow-x:hidden !important;
+}
+
+.drawer{
+  box-shadow:none !important;
+}
 
