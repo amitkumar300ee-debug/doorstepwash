@@ -35,9 +35,9 @@ button{cursor:pointer;font-family:var(--font);border:none}
 .drawer{position:fixed;top:0;left:-280px;bottom:0;width:280px;z-index:201;background:#fff;transition:left .3s ease;overflow-y:auto}
 .drawer.open{left:0}
 .drawer-head{background:var(--teal);padding:20px 18px;display:flex;align-items:center;gap:10px}
-.drawer-head .logo-text{color:#fff;font-size:1rem;font-weight:800;display:flex;align-items:center;gap:8px;min-width:0;flex:1;overflow:hidden}
-.drawer-head .logo-text img{height:32px;width:32px;flex-shrink:0;object-fit:contain;border-radius:6px}
-.drawer-head .logo-text span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.drawer-head .logo-text{color:#fff;display:flex;flex-direction:column;line-height:1.2;min-width:0;flex:1;overflow:hidden}
+.drawer-head .logo-text .lt-main{font-size:1.3rem;font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.drawer-head .logo-text .lt-sub{font-size:.78rem;font-weight:600;opacity:.85;letter-spacing:.5px;white-space:nowrap}
 .drawer-close{margin-left:auto;background:rgba(255,255,255,.15);border:none;color:#fff;width:32px;height:32px;border-radius:8px;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .drawer-links a{display:flex;align-items:center;gap:12px;padding:14px 18px;font-size:.88rem;font-weight:600;color:#333;border-bottom:1px solid #f0f0f0;transition:background .15s}
 .drawer-links a:hover,.drawer-links a:active{background:#f5faf8;color:var(--teal)}
