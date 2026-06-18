@@ -352,23 +352,26 @@ input,select,textarea{font-family:var(--font)}
       <div class="price-card">
         <div class="pc-head">🚙 Hatchback</div>
         <div class="pf-row">
-          <div class="pf"><label>Min ₹</label><input class="pfc" type="number" id="p_hatchback_min" placeholder="299"></div>
-          <div class="pf"><label>Max ₹</label><input class="pfc" type="number" id="p_hatchback_max" placeholder="399"></div>
+          <div class="pf"><label>Min ₹ (current)</label><input class="pfc" type="number" id="p_hatchback_min" placeholder="299"></div>
+          <div class="pf"><label>Old ₹ (strike)</label><input class="pfc" type="number" id="p_hatchback_old" placeholder="499"></div>
         </div>
+        <div class="pf"><label>Max ₹ (Full)</label><input class="pfc" type="number" id="p_hatchback_max" placeholder="399"></div>
       </div>
       <div class="price-card">
         <div class="pc-head">🚗 Sedan</div>
         <div class="pf-row">
-          <div class="pf"><label>Min ₹</label><input class="pfc" type="number" id="p_sedan_min" placeholder="399"></div>
-          <div class="pf"><label>Max ₹</label><input class="pfc" type="number" id="p_sedan_max" placeholder="499"></div>
+          <div class="pf"><label>Min ₹ (current)</label><input class="pfc" type="number" id="p_sedan_min" placeholder="399"></div>
+          <div class="pf"><label>Old ₹ (strike)</label><input class="pfc" type="number" id="p_sedan_old" placeholder="599"></div>
         </div>
+        <div class="pf"><label>Max ₹ (Full)</label><input class="pfc" type="number" id="p_sedan_max" placeholder="499"></div>
       </div>
       <div class="price-card">
         <div class="pc-head">🚐 SUV / MUV</div>
         <div class="pf-row">
-          <div class="pf"><label>Min ₹</label><input class="pfc" type="number" id="p_suv_min" placeholder="499"></div>
-          <div class="pf"><label>Max ₹</label><input class="pfc" type="number" id="p_suv_max" placeholder="699"></div>
+          <div class="pf"><label>Min ₹ (current)</label><input class="pfc" type="number" id="p_suv_min" placeholder="499"></div>
+          <div class="pf"><label>Old ₹ (strike)</label><input class="pfc" type="number" id="p_suv_old" placeholder="899"></div>
         </div>
+        <div class="pf"><label>Max ₹ (Full)</label><input class="pfc" type="number" id="p_suv_max" placeholder="699"></div>
       </div>
       <div class="price-card">
         <div class="pc-head">🏍️ Bike</div>
@@ -758,9 +761,9 @@ function gn(id){ const v=document.getElementById(id)?.value; return v===''?0:Num
 function fillPricing(p){
   const s=p.services||{},a=p.addons||{},sl=p.slides||{};
   sv('p_offer_text',p.offer_text); sv('p_offer_amount',p.offer_amount); sv('p_offer_subtext',p.offer_subtext);
-  if(s.hatchback){sv('p_hatchback_min',s.hatchback.price_min);sv('p_hatchback_max',s.hatchback.price_max);}
-  if(s.sedan){sv('p_sedan_min',s.sedan.price_min);sv('p_sedan_max',s.sedan.price_max);}
-  if(s.suv){sv('p_suv_min',s.suv.price_min);sv('p_suv_max',s.suv.price_max);}
+  if(s.hatchback){sv('p_hatchback_min',s.hatchback.price_min);sv('p_hatchback_max',s.hatchback.price_max);sv('p_hatchback_old',s.hatchback.price_old);}
+  if(s.sedan){sv('p_sedan_min',s.sedan.price_min);sv('p_sedan_max',s.sedan.price_max);sv('p_sedan_old',s.sedan.price_old);}
+  if(s.suv){sv('p_suv_min',s.suv.price_min);sv('p_suv_max',s.suv.price_max);sv('p_suv_old',s.suv.price_old);}
   if(s.bike)sv('p_bike_price',s.bike.price);
   if(s.premium)sv('p_premium_price',s.premium.price);
   if(a.interior_vacuum)sv('p_addon_vacuum',a.interior_vacuum.price);
@@ -776,9 +779,9 @@ async function savePricing(){
   const payload={
     offer_text:gv('p_offer_text'),offer_amount:gv('p_offer_amount'),offer_subtext:gv('p_offer_subtext'),
     services:{
-      hatchback:{label:'Hatchback Wash',price_min:gn('p_hatchback_min'),price_max:gn('p_hatchback_max')},
-      sedan:{label:'Sedan Wash',price_min:gn('p_sedan_min'),price_max:gn('p_sedan_max')},
-      suv:{label:'SUV / MUV Wash',price_min:gn('p_suv_min'),price_max:gn('p_suv_max')},
+      hatchback:{label:'Hatchback Wash',price_min:gn('p_hatchback_min'),price_max:gn('p_hatchback_max'),price_old:gn('p_hatchback_old')},
+      sedan:{label:'Sedan Wash',price_min:gn('p_sedan_min'),price_max:gn('p_sedan_max'),price_old:gn('p_sedan_old')},
+      suv:{label:'SUV / MUV Wash',price_min:gn('p_suv_min'),price_max:gn('p_suv_max'),price_old:gn('p_suv_old')},
       bike:{label:'Bike / Scooter Wash',price:gn('p_bike_price')},
       premium:{label:'Premium Detailing',price:gn('p_premium_price')},
     },
