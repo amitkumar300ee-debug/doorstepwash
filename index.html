@@ -240,22 +240,64 @@
 <div class="sec rv" id="addons">
   <div class="sec-head"><h2>Add-On Services</h2></div>
   <div class="addon-grid">
-    <div class="addon-card" onclick="location.href='booking.html'">
-      <img class="addon-img" id="addonImg1" alt="Interior Vacuum">
-      <div class="addon-body"><h4>Interior Vacuum</h4><div class="addon-price">₹<span data-price="addons.interior_vacuum.price">199</span></div></div>
+    <div class="addon-card featured" onclick="location.href='booking.html?service=Premium'" style="grid-column:1/-1">
+      <div class="addon-body">
+        <div class="pc-badge">🌟 Highly Recommended</div>
+        <h4>Premium Detailing Package</h4>
+        <div class="addon-price">₹<span data-price="addons.premium_package.price">1499</span></div>
+        <ul class="pc-feats">
+          <li class="pc-feat">Complete Wash</li>
+          <li class="pc-feat">Spray Wax Protection Coat</li>
+          <li class="pc-feat">Interior Detailing</li>
+          <li class="pc-feat">Under Body Foam Wash</li>
+          <li class="pc-feat">Ceramic Wash</li>
+          <li class="pc-feat">Interior Vacuum</li>
+        </ul>
+      </div>
     </div>
     <div class="addon-card" onclick="location.href='booking.html'">
-      <img class="addon-img" id="addonImg2" alt="Dashboard Polish">
-      <div class="addon-body"><h4>Dashboard Polish</h4><div class="addon-price">₹<span data-price="addons.dashboard_polish.price">99</span></div></div>
+      <img class="addon-img" id="addonImg1" alt="Ceramic Foam Wash">
+      <div class="addon-body">
+        <h4>Ceramic Foam Wash</h4>
+        <div class="addon-price">₹<span data-price="addons.ceramic_foam_wash.price">199</span></div>
+        <ul class="pc-feats">
+          <li class="pc-feat">Ultra Gloss / Shine</li>
+          <li class="pc-feat">Hydrophobic Effect</li>
+        </ul>
+      </div>
     </div>
     <div class="addon-card" onclick="location.href='booking.html'">
-      <img class="addon-img" id="addonImg3" alt="Tyre Polish">
-      <div class="addon-body"><h4>Tyre Polish</h4><div class="addon-price">₹<span data-price="addons.tyre_polish.price">99</span></div></div>
+      <img class="addon-img" id="addonImg2" alt="Under Body Foam Wash">
+      <div class="addon-body"><h4>Under Body Foam Wash</h4><div class="addon-price">₹<span data-price="addons.under_body_foam_wash.price">149</span></div></div>
     </div>
     <div class="addon-card" onclick="location.href='booking.html'">
-      <img class="addon-img" id="addonImg4" alt="Glass Cleaning">
-      <div class="addon-body"><h4>Glass Cleaning</h4><div class="addon-price">₹<span data-price="addons.glass_cleaning.price">99</span></div></div>
+      <img class="addon-img" id="addonImg3" alt="Glass Coating (All Glass)">
+      <div class="addon-body"><h4>Glass Coating (All Glass)</h4><div class="addon-price">₹<span data-price="addons.glass_coating_all.price">999</span></div></div>
     </div>
+    <div class="addon-card" onclick="location.href='booking.html'">
+      <img class="addon-img" id="addonImg4" alt="Front & Back Glass Coating">
+      <div class="addon-body"><h4>Front &amp; Back Glass Coating</h4><div class="addon-price">₹<span data-price="addons.glass_coating_fb.price">699</span></div></div>
+    </div>
+    <div class="addon-card" onclick="location.href='booking.html'">
+      <img class="addon-img" id="addonImg5" alt="Interior Detailing">
+      <div class="addon-body"><h4>Interior Detailing</h4><div class="addon-price">₹<span data-price="addons.interior_detailing.price">499</span></div></div>
+    </div>
+    <div class="addon-card" onclick="location.href='booking.html'">
+      <img class="addon-img" id="addonImg6" alt="Spray Wax">
+      <div class="addon-body"><h4>Spray Wax</h4><div class="addon-price">₹<span data-price="addons.spray_wax.price">99</span></div></div>
+    </div>
+    <div class="addon-card" onclick="location.href='booking.html'">
+      <img class="addon-img" id="addonImg7" alt="Ceramic Coating">
+      <div class="addon-body"><h4>Ceramic Coating</h4><div class="addon-price">₹<span data-price="addons.ceramic_coating.price">99</span></div></div>
+    </div>
+  </div>
+  <div class="addon-terms" style="margin-top:16px;padding:14px 16px;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);font-size:.82rem;line-height:1.7">
+    <div style="font-weight:700;margin-bottom:6px">📋 Terms &amp; Policy</div>
+    <div>• Extra charges after 10 KM: ₹100</div>
+    <div>• SUV Extra Charge: ₹50</div>
+    <div>• Sedan / Normal Car Extra Charge: ₹100</div>
+    <div>• Extra 5% Discount (Small Sedan / Mid SUV)</div>
+    <div style="margin-top:6px;opacity:.75">Note: Add-on Services Mandatory: N/A</div>
   </div>
 </div>
 
@@ -411,10 +453,13 @@
   document.getElementById('pcImg3').src = IMG.steam;
   document.getElementById('pcImg4').src = IMG.bike2;
   document.getElementById('pcImg5').src = IMG.detailing;
-  document.getElementById('addonImg1').src = IMG.interior;
-  document.getElementById('addonImg2').src = IMG.detailing;
-  document.getElementById('addonImg3').src = IMG.tyre;
+  document.getElementById('addonImg1').src = IMG.exterior;
+  document.getElementById('addonImg2').src = IMG.steam;
+  document.getElementById('addonImg3').src = IMG.glass;
   document.getElementById('addonImg4').src = IMG.glass;
+  document.getElementById('addonImg5').src = IMG.interiordetail2;
+  document.getElementById('addonImg6').src = IMG.sprayfoam;
+  document.getElementById('addonImg7').src = IMG.ceramiccoating2;
 </script>
 </body>
 </html>

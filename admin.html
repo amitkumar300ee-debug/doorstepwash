@@ -385,11 +385,14 @@ input,select,textarea{font-family:var(--font)}
     </div>
     <div class="sec-lbl">➕ Add-On Prices</div>
     <div class="pricing-grid">
-      <div class="price-card"><div class="pc-head">🧹 Interior Vacuum</div><div class="pf"><label>Price ₹</label><input class="pfc" type="number" id="p_addon_vacuum" placeholder="199"></div></div>
-      <div class="price-card"><div class="pc-head">✨ Dashboard Polish</div><div class="pf"><label>Price ₹</label><input class="pfc" type="number" id="p_addon_dashboard" placeholder="99"></div></div>
-      <div class="price-card"><div class="pc-head">🔘 Tyre Polish</div><div class="pf"><label>Price ₹</label><input class="pfc" type="number" id="p_addon_tyre" placeholder="99"></div></div>
-      <div class="price-card"><div class="pc-head">🪟 Glass Cleaning</div><div class="pf"><label>Price ₹</label><input class="pfc" type="number" id="p_addon_glass" placeholder="99"></div></div>
-      <div class="price-card full"><div class="pc-head">🧽 Interior Deep Clean</div><div class="pf"><label>Price ₹ (shown as ₹499+)</label><input class="pfc" type="number" id="p_addon_deepclean" placeholder="499"></div></div>
+      <div class="price-card full"><div class="pc-head">🌟 Premium Detailing Package</div><div class="pf"><label>Price ₹</label><input class="pfc" type="number" id="p_addon_premium_package" placeholder="1499"></div></div>
+      <div class="price-card"><div class="pc-head">✨ Ceramic Foam Wash</div><div class="pf"><label>Price ₹</label><input class="pfc" type="number" id="p_addon_ceramic_foam" placeholder="199"></div></div>
+      <div class="price-card"><div class="pc-head">🧼 Under Body Foam Wash</div><div class="pf"><label>Price ₹</label><input class="pfc" type="number" id="p_addon_underbody_foam" placeholder="149"></div></div>
+      <div class="price-card"><div class="pc-head">🪟 Glass Coating (All Glass)</div><div class="pf"><label>Price ₹</label><input class="pfc" type="number" id="p_addon_glass_all" placeholder="999"></div></div>
+      <div class="price-card"><div class="pc-head">🪟 Front &amp; Back Glass Coating</div><div class="pf"><label>Price ₹</label><input class="pfc" type="number" id="p_addon_glass_fb" placeholder="699"></div></div>
+      <div class="price-card"><div class="pc-head">🧹 Interior Detailing</div><div class="pf"><label>Price ₹</label><input class="pfc" type="number" id="p_addon_interior_detailing" placeholder="499"></div></div>
+      <div class="price-card"><div class="pc-head">💧 Spray Wax</div><div class="pf"><label>Price ₹</label><input class="pfc" type="number" id="p_addon_spray_wax" placeholder="99"></div></div>
+      <div class="price-card"><div class="pc-head">🛡️ Ceramic Coating</div><div class="pf"><label>Price ₹</label><input class="pfc" type="number" id="p_addon_ceramic_coating" placeholder="99"></div></div>
     </div>
     <div class="sec-lbl">🖼️ Hero Slider</div>
     <div class="pricing-grid">
@@ -767,11 +770,14 @@ function fillPricing(p){
   if(s.suv){sv('p_suv_min',s.suv.price_min);sv('p_suv_max',s.suv.price_max);sv('p_suv_old',s.suv.price_old);}
   if(s.bike)sv('p_bike_price',s.bike.price);
   if(s.premium)sv('p_premium_price',s.premium.price);
-  if(a.interior_vacuum)sv('p_addon_vacuum',a.interior_vacuum.price);
-  if(a.dashboard_polish)sv('p_addon_dashboard',a.dashboard_polish.price);
-  if(a.tyre_polish)sv('p_addon_tyre',a.tyre_polish.price);
-  if(a.glass_cleaning)sv('p_addon_glass',a.glass_cleaning.price);
-  if(a.interior_deep_clean)sv('p_addon_deepclean',a.interior_deep_clean.price);
+  if(a.premium_package)sv('p_addon_premium_package',a.premium_package.price);
+  if(a.ceramic_foam_wash)sv('p_addon_ceramic_foam',a.ceramic_foam_wash.price);
+  if(a.under_body_foam_wash)sv('p_addon_underbody_foam',a.under_body_foam_wash.price);
+  if(a.glass_coating_all)sv('p_addon_glass_all',a.glass_coating_all.price);
+  if(a.glass_coating_fb)sv('p_addon_glass_fb',a.glass_coating_fb.price);
+  if(a.interior_detailing)sv('p_addon_interior_detailing',a.interior_detailing.price);
+  if(a.spray_wax)sv('p_addon_spray_wax',a.spray_wax.price);
+  if(a.ceramic_coating)sv('p_addon_ceramic_coating',a.ceramic_coating.price);
   if(sl.slide1){sv('p_slide1_title',sl.slide1.title);sv('p_slide1_sub',sl.slide1.subtitle);sv('p_slide1_new',sl.slide1.price_new);sv('p_slide1_old',sl.slide1.price_old);}
   if(sl.slide2){sv('p_slide2_title',sl.slide2.title);sv('p_slide2_sub',sl.slide2.subtitle);sv('p_slide2_new',sl.slide2.price_new);sv('p_slide2_old',sl.slide2.price_old);}
   if(sl.slide3){sv('p_slide3_title',sl.slide3.title);sv('p_slide3_sub',sl.slide3.subtitle);sv('p_slide3_new',sl.slide3.price_new);sv('p_slide3_old',sl.slide3.price_old);}
@@ -787,11 +793,14 @@ async function savePricing(){
       premium:{label:'Premium Detailing',price:gn('p_premium_price')},
     },
     addons:{
-      interior_vacuum:{label:'Interior Vacuum',price:gn('p_addon_vacuum')},
-      dashboard_polish:{label:'Dashboard Polish',price:gn('p_addon_dashboard')},
-      tyre_polish:{label:'Tyre Polish',price:gn('p_addon_tyre')},
-      glass_cleaning:{label:'Glass Cleaning',price:gn('p_addon_glass')},
-      interior_deep_clean:{label:'Interior Deep Clean',price:gn('p_addon_deepclean')},
+      premium_package:{label:'Premium Detailing Package',price:gn('p_addon_premium_package')},
+      ceramic_foam_wash:{label:'Ceramic Foam Wash',price:gn('p_addon_ceramic_foam')},
+      under_body_foam_wash:{label:'Under Body Foam Wash',price:gn('p_addon_underbody_foam')},
+      glass_coating_all:{label:'Glass Coating (All Glass)',price:gn('p_addon_glass_all')},
+      glass_coating_fb:{label:'Front & Back Glass Coating',price:gn('p_addon_glass_fb')},
+      interior_detailing:{label:'Interior Detailing',price:gn('p_addon_interior_detailing')},
+      spray_wax:{label:'Spray Wax',price:gn('p_addon_spray_wax')},
+      ceramic_coating:{label:'Ceramic Coating',price:gn('p_addon_ceramic_coating')},
     },
     slides:{
       slide1:{title:gv('p_slide1_title'),subtitle:gv('p_slide1_sub'),price_new:gn('p_slide1_new'),price_old:gn('p_slide1_old')},
