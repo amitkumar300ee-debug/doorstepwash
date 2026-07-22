@@ -112,35 +112,35 @@
   <div class="svc-grid">
     <div class="svc-item" onclick="location.href='booking.html?service=Hatchback'">
       <img class="svc-img" id="svcImg1" alt="Exterior Wash">
-      <div class="svc-lbl">🚿 Exterior Wash</div>
+      <div class="svc-lbl">🚿 <span data-price="svc_labels.exterior">Exterior Wash</span></div>
     </div>
     <div class="svc-item" onclick="location.href='booking.html?service=SUV'">
       <img class="svc-img" id="svcImg2" alt="Deep Steam Wash">
-      <div class="svc-lbl">🫧 Deep Steam</div>
+      <div class="svc-lbl">🫧 <span data-price="svc_labels.deepsteam">Deep Steam</span></div>
     </div>
     <div class="svc-item" onclick="location.href='booking.html?service=Sedan'">
       <img class="svc-img" id="svcImg3" alt="Interior Clean">
-      <div class="svc-lbl">🪑 Interior Clean</div>
+      <div class="svc-lbl">🪑 <span data-price="svc_labels.interiorclean">Interior Clean</span></div>
     </div>
     <div class="svc-item" onclick="location.href='booking.html?service=Premium'">
       <img class="svc-img" id="svcImg4" alt="Car Detailing">
-      <div class="svc-lbl">✨ Car Detailing</div>
+      <div class="svc-lbl">✨ <span data-price="svc_labels.cardetailing">Car Detailing</span></div>
     </div>
     <div class="svc-item" onclick="location.href='booking.html?service=Premium'">
       <img class="svc-img" id="svcImg5" alt="Headlight Restore">
-      <div class="svc-lbl">💡 Headlight Restore</div>
+      <div class="svc-lbl">💡 <span data-price="svc_labels.headlight">Headlight Restore</span></div>
     </div>
     <div class="svc-item" onclick="location.href='booking.html?service=Hatchback'">
       <img class="svc-img" id="svcImg6" alt="Glass Cleaning">
-      <div class="svc-lbl">🪟 Glass Cleaning</div>
+      <div class="svc-lbl">🪟 <span data-price="svc_labels.glasscleaning">Glass Cleaning</span></div>
     </div>
     <div class="svc-item" onclick="location.href='booking.html?service=Bike'">
       <img class="svc-img" id="svcImg7" alt="Bike Wash">
-      <div class="svc-lbl">🏍️ Bike Wash</div>
+      <div class="svc-lbl">🏍️ <span data-price="svc_labels.bikewash">Bike Wash</span></div>
     </div>
     <div class="svc-item" onclick="location.href='index.html#addons'">
       <img class="svc-img" id="svcImg8" alt="Tyre Polish">
-      <div class="svc-lbl">⚫ Tyre Polish</div>
+      <div class="svc-lbl">⚫ <span data-price="svc_labels.tyrepolish">Tyre Polish</span></div>
     </div>
   </div>
 </div>
@@ -151,9 +151,13 @@
   <div class="sec-head"><h2>Pricing</h2></div>
   <div class="price-scroll">
     <div class="price-card">
-      <img class="pc-img" id="pcImg1" alt="Hatchback">
+      <div class="pc-img-wrap">
+        <img class="pc-img" id="pcImg1" alt="Hatchback">
+        <button class="pc-nav prev" onclick="pcNav('pcImg1',-1)">‹</button>
+        <button class="pc-nav next" onclick="pcNav('pcImg1',1)">›</button>
+      </div>
       <div class="pc-body">
-        <div class="pc-name">🚗 Hatchback</div>
+        <div class="pc-name">🚗 <span data-price="services.hatchback.label">Hatchback</span></div>
         <div class="pc-price"><sup>₹</sup><span data-price="services.hatchback.price_min">299</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.hatchback.price_old">999</span></span></div>
         <div class="pc-per">Basic / up to ₹<span data-price="services.hatchback.price_max">399</span> Full</div>
         <ul class="pc-feats">
@@ -163,14 +167,18 @@
           <li class="pc-feat">Hand dry finish</li>
           <li class="pc-feat no">Interior vacuum</li>
         </ul>
-        <button class="pc-btn" onclick="location.href='booking.html?service=Hatchback'">Book Now</button>
+        <button class="pc-btn g-blue" onclick="location.href='booking.html?service=Hatchback'">Book Now</button>
       </div>
     </div>
     <div class="price-card featured">
-      <img class="pc-img" id="pcImg2" alt="Sedan">
+      <div class="pc-img-wrap">
+        <img class="pc-img" id="pcImg2" alt="Sedan">
+        <button class="pc-nav prev" onclick="pcNav('pcImg2',-1)">‹</button>
+        <button class="pc-nav next" onclick="pcNav('pcImg2',1)">›</button>
+      </div>
       <div class="pc-body">
-        <div class="pc-badge">⭐ Popular</div>
-        <div class="pc-name">🚙 Sedan</div>
+        <div class="pc-badge">★ Most Popular</div>
+        <div class="pc-name">🚙 <span data-price="services.sedan.label">Sedan</span></div>
         <div class="pc-price"><sup>₹</sup><span data-price="services.sedan.price_min">399</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.sedan.price_old">999</span></span></div>
         <div class="pc-per">Basic / up to ₹<span data-price="services.sedan.price_max">999</span> Full</div>
         <ul class="pc-feats">
@@ -180,13 +188,69 @@
           <li class="pc-feat">Glass polish</li>
           <li class="pc-feat">Air freshener</li>
         </ul>
-        <button class="pc-btn" onclick="location.href='booking.html?service=Sedan'">Book Now</button>
+        <button class="pc-btn g-purple" onclick="location.href='booking.html?service=Sedan'">Book Now</button>
+      </div>
+    </div>
+    <div class="price-card featured">
+      <div class="pc-img-wrap">
+        <img class="pc-img" id="pcImg6" alt="Fabric Leather Care">
+        <button class="pc-nav prev" onclick="pcNav('pcImg6',-1)">‹</button>
+        <button class="pc-nav next" onclick="pcNav('pcImg6',1)">›</button>
+      </div>
+      <div class="pc-body">
+        <div class="pc-badge">🌟 Highly Recommended</div>
+        <div class="pc-name">🧵 <span data-price="services.fabriccare.label">Fabric / Leather Care</span></div>
+        <div class="pc-price"><sup>₹</sup><span data-price="services.fabriccare.price">1199</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.fabriccare.price_old">1699</span></span></div>
+        <div class="pc-per">Per session · All vehicles</div>
+        <ul class="pc-feats">
+          <li class="pc-feat">Deep dry cleaning of all fabric/leather seats (edges, stitching &amp; corners included)</li>
+          <li class="pc-feat">Roof (headliner) cleaning using safe dry method</li>
+          <li class="pc-feat">Complete interior vacuuming (under seats, carpets &amp; boot area)</li>
+          <li class="pc-feat">Floor mats washing, scrubbing &amp; cleaning</li>
+          <li class="pc-feat">Car basement cleaning with foam &amp; scrubbing</li>
+          <li class="pc-feat">Door panels, strips &amp; side trims detailed cleaning</li>
+          <li class="pc-feat">Dashboard &amp; center console cleaning, detailing &amp; polishing</li>
+          <li class="pc-feat">Stain &amp; dirt removal with proper treatment</li>
+          <li class="pc-feat">Full interior detailing for a fresh finish</li>
+        </ul>
+        <button class="pc-btn g-rose" onclick="location.href='booking.html?service=FabricCare'">Book Now</button>
       </div>
     </div>
     <div class="price-card">
-      <img class="pc-img" id="pcImg3" alt="SUV">
+      <div class="pc-img-wrap">
+        <img class="pc-img" id="pcImg5" alt="Premium">
+        <button class="pc-nav prev" onclick="pcNav('pcImg5',-1)">‹</button>
+        <button class="pc-nav next" onclick="pcNav('pcImg5',1)">›</button>
+      </div>
       <div class="pc-body">
-        <div class="pc-name">🚐 SUV / MUV</div>
+        <div class="pc-name"><span data-price="services.premium.label">Premium Detailing Package</span></div>
+        <div class="pc-price"><sup>₹</sup><span data-price="services.premium.price">1499</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.premium.price_old">1999</span></span></div>
+        <div class="pc-per">Per session · All vehicles</div>
+        <ul class="pc-feats">
+          <li class="pc-feat">Full Interior Vacuum (seats, carpets &amp; boot)</li>
+          <li class="pc-feat">Carpet / Floor Mat Shampooing</li>
+          <li class="pc-feat">Dashboard, Trims &amp; Panel Polish</li>
+          <li class="pc-feat">Door Panels, Console &amp; AC Vent Cleaning</li>
+          <li class="pc-feat">Safe Engine Bay Cleaning (battery area protected)</li>
+          <li class="pc-feat">Body &amp; Glass Polishing for Enhanced Shine and Clear Visibility</li>
+          <li class="pc-feat">Underbody Cleaning</li>
+          <li class="pc-feat">Plastic Restoration Polish for Faded Parts</li>
+          <li class="pc-feat">Door Edges, Fuel Lid, Dicky Jamb Cleaning &amp; Logo Detailing</li>
+          <li class="pc-feat">Hidden Gap Detailing (windshield trims, etc.)</li>
+          <li class="pc-feat">Free Paper Mats &amp; Car Perfume Spray</li>
+          <li class="pc-feat">Tyre Polish &amp; Dressing for Rich Black Look</li>
+        </ul>
+        <button class="pc-btn g-gold" onclick="location.href='booking.html?service=Premium'">Book Now</button>
+      </div>
+    </div>
+    <div class="price-card">
+      <div class="pc-img-wrap">
+        <img class="pc-img" id="pcImg3" alt="SUV">
+        <button class="pc-nav prev" onclick="pcNav('pcImg3',-1)">‹</button>
+        <button class="pc-nav next" onclick="pcNav('pcImg3',1)">›</button>
+      </div>
+      <div class="pc-body">
+        <div class="pc-name">🚐 <span data-price="services.suv.label">SUV / MUV</span></div>
         <div class="pc-price"><sup>₹</sup><span data-price="services.suv.price_min">999</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.suv.price_old">999</span></span></div>
         <div class="pc-per">Basic / up to ₹<span data-price="services.suv.price_max">699</span> Full</div>
         <ul class="pc-feats">
@@ -196,13 +260,17 @@
           <li class="pc-feat">Dashboard &amp; panels</li>
           <li class="pc-feat">Glass &amp; windows</li>
         </ul>
-        <button class="pc-btn" onclick="location.href='booking.html?service=SUV'">Book Now</button>
+        <button class="pc-btn g-teal" onclick="location.href='booking.html?service=SUV'">Book Now</button>
       </div>
     </div>
     <div class="price-card">
-      <img class="pc-img" id="pcImg4" alt="Bike">
+      <div class="pc-img-wrap">
+        <img class="pc-img" id="pcImg4" alt="Bike">
+        <button class="pc-nav prev" onclick="pcNav('pcImg4',-1)">‹</button>
+        <button class="pc-nav next" onclick="pcNav('pcImg4',1)">›</button>
+      </div>
       <div class="pc-body">
-        <div class="pc-name">🏍️ Bike / Scooter</div>
+        <div class="pc-name">🏍️ <span data-price="services.bike.label">Bike / Scooter</span></div>
         <div class="pc-price"><sup>₹</sup><span data-price="services.bike.price">250</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.bike.price_old">350</span></span></div>
         <div class="pc-per">Full exterior wash</div>
         <ul class="pc-feats">
@@ -212,24 +280,7 @@
           <li class="pc-feat">Hand dry finish</li>
           <li class="pc-feat no">Interior (N/A)</li>
         </ul>
-        <button class="pc-btn" onclick="location.href='booking.html?service=Bike'">Book Now</button>
-      </div>
-    </div>
-    <div class="price-card featured">
-      <img class="pc-img" id="pcImg5" alt="Premium">
-      <div class="pc-body">
-        <div class="pc-badge">🌟 Best</div>
-        <div class="pc-name">Premium Detail</div>
-        <div class="pc-price"><sup>₹</sup><span data-price="services.premium.price">999</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.premium.price_old">1999</span></span></div>
-        <div class="pc-per">Per session · All vehicles</div>
-        <ul class="pc-feats">
-          <li class="pc-feat">Complete wash</li>
-          <li class="pc-feat">Wax protection coat</li>
-          <li class="pc-feat">Engine bay clean</li>
-          <li class="pc-feat">Leather condition</li>
-          <li class="pc-feat">Scratch polish</li>
-        </ul>
-        <button class="pc-btn" onclick="location.href='booking.html?service=Premium'">Book Now</button>
+        <button class="pc-btn g-orange" onclick="location.href='booking.html?service=Bike'">Book Now</button>
       </div>
     </div>
   </div>
@@ -240,25 +291,10 @@
 <div class="sec rv" id="addons">
   <div class="sec-head"><h2>Add-On Services</h2></div>
   <div class="addon-grid">
-    <div class="addon-card featured" onclick="location.href='booking.html?service=Premium'" style="grid-column:1/-1">
-      <div class="addon-body">
-        <div class="pc-badge">🌟 Highly Recommended</div>
-        <h4>Premium Detailing Package</h4>
-        <div class="addon-price">₹<span data-price="addons.premium_package.price">1499</span></div>
-        <ul class="pc-feats">
-          <li class="pc-feat">Complete Wash</li>
-          <li class="pc-feat">Spray Wax Protection Coat</li>
-          <li class="pc-feat">Interior Detailing</li>
-          <li class="pc-feat">Under Body Foam Wash</li>
-          <li class="pc-feat">Ceramic Wash</li>
-          <li class="pc-feat">Interior Vacuum</li>
-        </ul>
-      </div>
-    </div>
     <div class="addon-card" onclick="location.href='booking.html'">
       <img class="addon-img" id="addonImg1" alt="Ceramic Foam Wash">
       <div class="addon-body">
-        <h4>Ceramic Foam Wash</h4>
+        <h4><span data-price="addons.ceramic_foam_wash.label">Ceramic Foam Wash</span></h4>
         <div class="addon-price">₹<span data-price="addons.ceramic_foam_wash.price">199</span></div>
         <ul class="pc-feats">
           <li class="pc-feat">Ultra Gloss / Shine</li>
@@ -268,36 +304,36 @@
     </div>
     <div class="addon-card" onclick="location.href='booking.html'">
       <img class="addon-img" id="addonImg2" alt="Under Body Foam Wash">
-      <div class="addon-body"><h4>Under Body Foam Wash</h4><div class="addon-price">₹<span data-price="addons.under_body_foam_wash.price">149</span></div></div>
+      <div class="addon-body"><h4><span data-price="addons.under_body_foam_wash.label">Under Body Foam Wash</span></h4><div class="addon-price">₹<span data-price="addons.under_body_foam_wash.price">149</span></div></div>
     </div>
     <div class="addon-card" onclick="location.href='booking.html'">
       <img class="addon-img" id="addonImg3" alt="Glass Coating (All Glass)">
-      <div class="addon-body"><h4>Glass Coating (All Glass)</h4><div class="addon-price">₹<span data-price="addons.glass_coating_all.price">999</span></div></div>
+      <div class="addon-body"><h4><span data-price="addons.glass_coating_all.label">Glass Coating (All Glass)</span></h4><div class="addon-price">₹<span data-price="addons.glass_coating_all.price">999</span></div></div>
     </div>
     <div class="addon-card" onclick="location.href='booking.html'">
       <img class="addon-img" id="addonImg4" alt="Front & Back Glass Coating">
-      <div class="addon-body"><h4>Front &amp; Back Glass Coating</h4><div class="addon-price">₹<span data-price="addons.glass_coating_fb.price">699</span></div></div>
+      <div class="addon-body"><h4><span data-price="addons.glass_coating_fb.label">Front &amp; Back Glass Coating</span></h4><div class="addon-price">₹<span data-price="addons.glass_coating_fb.price">699</span></div></div>
     </div>
     <div class="addon-card" onclick="location.href='booking.html'">
       <img class="addon-img" id="addonImg5" alt="Interior Detailing">
-      <div class="addon-body"><h4>Interior Detailing</h4><div class="addon-price">₹<span data-price="addons.interior_detailing.price">499</span></div></div>
+      <div class="addon-body"><h4><span data-price="addons.interior_detailing.label">Interior Detailing</span></h4><div class="addon-price">₹<span data-price="addons.interior_detailing.price">499</span></div></div>
     </div>
     <div class="addon-card" onclick="location.href='booking.html'">
       <img class="addon-img" id="addonImg6" alt="Spray Wax">
-      <div class="addon-body"><h4>Spray Wax</h4><div class="addon-price">₹<span data-price="addons.spray_wax.price">99</span></div></div>
+      <div class="addon-body"><h4><span data-price="addons.spray_wax.label">Spray Wax</span></h4><div class="addon-price">₹<span data-price="addons.spray_wax.price">99</span></div></div>
     </div>
     <div class="addon-card" onclick="location.href='booking.html'">
       <img class="addon-img" id="addonImg7" alt="Ceramic Coating">
-      <div class="addon-body"><h4>Ceramic Coating</h4><div class="addon-price">₹<span data-price="addons.ceramic_coating.price">99</span></div></div>
+      <div class="addon-body"><h4><span data-price="addons.ceramic_coating.label">Ceramic Coating</span></h4><div class="addon-price">₹<span data-price="addons.ceramic_coating.price">99</span></div></div>
     </div>
-  </div>
-  <div class="addon-terms" style="margin-top:16px;padding:14px 16px;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);font-size:.82rem;line-height:1.7">
-    <div style="font-weight:700;margin-bottom:6px">📋 Terms &amp; Policy</div>
-    <div>• Extra charges after 10 KM: ₹100</div>
-    <div>• SUV Extra Charge: ₹50</div>
-    <div>• Sedan / Normal Car Extra Charge: ₹100</div>
-    <div>• Extra 5% Discount (Small Sedan / Mid SUV)</div>
-    <div style="margin-top:6px;opacity:.75">Note: Add-on Services Mandatory: N/A</div>
+    <div class="addon-card" onclick="location.href='booking.html'">
+      <img class="addon-img" id="addonImg8" alt="Leather Conditioning">
+      <div class="addon-body"><h4><span data-price="addons.leather_conditioning.label">Leather Conditioning</span></h4><div class="addon-price">₹<span data-price="addons.leather_conditioning.price">299</span></div></div>
+    </div>
+    <div class="addon-card" onclick="location.href='booking.html'">
+      <img class="addon-img" id="addonImg9" alt="Engine Degreasing">
+      <div class="addon-body"><h4><span data-price="addons.engine_degreasing.label">Engine Degreasing</span></h4><div class="addon-price">₹<span data-price="addons.engine_degreasing.price">349</span></div></div>
+    </div>
   </div>
 </div>
 
@@ -436,30 +472,59 @@
 <script>window.HS_PAGE="home";</script>
 <script src="app.js"></script>
 <script>
-  // Apply images
-  document.getElementById('slideImg1').src = IMG.slide1;
-  document.getElementById('slideImg2').src = IMG.slide2;
-  document.getElementById('slideImg3').src = IMG.slide3;
-  document.getElementById('svcImg1').src = IMG.exterior;
-  document.getElementById('svcImg2').src = IMG.steam;
-  document.getElementById('svcImg3').src = IMG.interior;
-  document.getElementById('svcImg4').src = IMG.detailing;
-  document.getElementById('svcImg5').src = IMG.headlight;
-  document.getElementById('svcImg6').src = IMG.glass;
-  document.getElementById('svcImg7').src = IMG.bike1;
-  document.getElementById('svcImg8').src = IMG.tyre;
-  document.getElementById('pcImg1').src = IMG.exterior;
-  document.getElementById('pcImg2').src = IMG.interior;
-  document.getElementById('pcImg3').src = IMG.steam;
-  document.getElementById('pcImg4').src = IMG.bike2;
-  document.getElementById('pcImg5').src = IMG.detailing;
-  document.getElementById('addonImg1').src = IMG.exterior;
-  document.getElementById('addonImg2').src = IMG.steam;
-  document.getElementById('addonImg3').src = IMG.glass;
-  document.getElementById('addonImg4').src = IMG.glass;
-  document.getElementById('addonImg5').src = IMG.interiordetail2;
-  document.getElementById('addonImg6').src = IMG.sprayfoam;
-  document.getElementById('addonImg7').src = IMG.ceramiccoating2;
+  // Apply images (safe: never throws even if an id/key is missing, so the
+  // rest of the page's script and layout can't be broken by one bad image)
+  function setImg(id, val) {
+    try {
+      const el = document.getElementById(id);
+      if (el && val) el.src = val;
+    } catch (e) {}
+  }
+  setImg('slideImg1', IMG.slide1);
+  setImg('slideImg2', IMG.slide2);
+  setImg('slideImg3', IMG.slide3);
+  setImg('svcImg1', IMG.new_exterior);
+  setImg('svcImg2', IMG.steam);
+  setImg('svcImg3', IMG.interior);
+  setImg('svcImg4', IMG.detailing);
+  setImg('svcImg5', IMG.new_headlight);
+  setImg('svcImg6', IMG.new_glass);
+  setImg('svcImg7', IMG.new_bikewash);
+  setImg('svcImg8', IMG.new_tyrepolish);
+  setImg('pcImg1', IMG.exterior);
+  setImg('pcImg2', IMG.interior);
+  setImg('pcImg3', IMG.steam);
+  setImg('pcImg4', IMG.new_bikescooter);
+  setImg('pcImg5', IMG.detailing);
+  setImg('pcImg6', IMG.interiordetail2);
+
+  // Per-card image slider (like GaadiGlow's ‹ › card image carousel)
+  window.PC_IMGS = {
+    pcImg1: ['new_exterior','sprayfoam'],
+    pcImg2: ['interior','new_glass'],
+    pcImg3: ['steam','new_tyrepolish'],
+    pcImg4: ['new_bikescooter','new_tyrepolish'],
+    pcImg5: ['detailing','new_glasscoating','new_underbody','sprayfoam'],
+    pcImg6: ['new_interiordetail','interiordetail2','interior']
+  };
+  window.pcIdx = {};
+  window.pcNav = function(imgId, dir){
+    const keys = window.PC_IMGS[imgId];
+    if(!keys) return;
+    let i = window.pcIdx[imgId] || 0;
+    i = (i + dir + keys.length) % keys.length;
+    window.pcIdx[imgId] = i;
+    document.getElementById(imgId).src = IMG[keys[i]];
+  };
+  setImg('addonImg1', IMG.new_ceramicfoam);
+  setImg('addonImg2', IMG.new_underbody);
+  setImg('addonImg3', IMG.new_glasscoating);
+  setImg('addonImg4', IMG.new_glasscoating);
+  setImg('addonImg5', IMG.new_interiordetail);
+  setImg('addonImg6', IMG.new_spraywax);
+  setImg('addonImg7', IMG.ceramiccoating2);
+  setImg('addonImg8', IMG.new_leathercondition);
+  setImg('addonImg9', IMG.new_enginedegrease);
 </script>
 </body>
 </html>

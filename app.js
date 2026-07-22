@@ -70,11 +70,18 @@ function closeDrawer() {
 
 // ───────────── SCROLL REVEAL ─────────────
 function initReveal() {
-  const obs = new IntersectionObserver(
-    (es) => es.forEach((e) => { if (e.isIntersecting) e.target.classList.add("in"); }),
-    { threshold: 0.08 }
-  );
-  document.querySelectorAll(".rv").forEach((el) => obs.observe(el));
+  // Safety net registered FIRST: if anything below throws, sections still
+  // get force-revealed after 2s instead of staying invisible forever.
+  setTimeout(() => {
+    document.querySelectorAll(".rv:not(.in)").forEach((el) => el.classList.add("in"));
+  }, 2000);
+  try {
+    const obs = new IntersectionObserver(
+      (es) => es.forEach((e) => { if (e.isIntersecting) e.target.classList.add("in"); }),
+      { threshold: 0.08 }
+    );
+    document.querySelectorAll(".rv").forEach((el) => obs.observe(el));
+  } catch (e) {}
 }
 
 // ───────────── BOTTOM NAV ACTIVE STATE ─────────────
@@ -271,6 +278,7 @@ function rebuildBookingSelects(pricing) {
     if (s.sedan) opts.push(`<option value="${s.sedan.label} – ₹${s.sedan.price_min} to ₹${s.sedan.price_max}">${s.sedan.label} – ₹${s.sedan.price_min} to ₹${s.sedan.price_max}</option>`);
     if (s.suv) opts.push(`<option value="${s.suv.label} – ₹${s.suv.price_min} to ₹${s.suv.price_max}">${s.suv.label} – ₹${s.suv.price_min} to ₹${s.suv.price_max}</option>`);
     if (s.bike) opts.push(`<option value="${s.bike.label} – ₹${s.bike.price}">${s.bike.label} – ₹${s.bike.price}</option>`);
+    if (s.fabriccare) opts.push(`<option value="${s.fabriccare.label} – ₹${s.fabriccare.price}">${s.fabriccare.label} – ₹${s.fabriccare.price}</option>`);
     if (s.premium) opts.push(`<option value="${s.premium.label} – ₹${s.premium.price}+">${s.premium.label} – ₹${s.premium.price}+</option>`);
     const prevValue = svcSel.value;
     svcSel.innerHTML = opts.join("");
@@ -332,15 +340,21 @@ function injectDesktopNav(activePage) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const dateEl = document.getElementById("f_date");
-  if (dateEl) dateEl.min = new Date().toISOString().split("T")[0];
-  initReveal();
-  initSlider();
-  injectDesktopNav(window.HS_PAGE || "home");
-  window.addEventListener("resize", () => injectDesktopNav(window.HS_PAGE || "home"));
+  try {
+    const dateEl = document.getElementById("f_date");
+    if (dateEl) dateEl.min = new Date().toISOString().split("T")[0];
+  } catch (e) {}
+  try { initReveal(); } catch (e) {}
+  try { initSlider(); } catch (e) {}
+  try { injectDesktopNav(window.HS_PAGE || "home"); } catch (e) {}
+  window.addEventListener("resize", () => {
+    try { injectDesktopNav(window.HS_PAGE || "home"); } catch (e) {}
+  });
   loadPricing().then((p) => {
-    if (p) rebuildBookingSelects(p);
-    if (window.HS_PAGE === "booking") prefillBookingForm();
+    try {
+      if (p) rebuildBookingSelects(p);
+      if (window.HS_PAGE === "booking") prefillBookingForm();
+    } catch (e) {}
   });
 });
 
