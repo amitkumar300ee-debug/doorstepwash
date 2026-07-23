@@ -150,7 +150,7 @@
 <div class="sec rv" id="pricing">
   <div class="sec-head"><h2>Pricing</h2></div>
   <div class="price-scroll">
-    <div class="price-card">
+    <div class="price-card featured" id="pcCard_premium">
       <div class="pc-img-wrap">
         <img class="pc-img" id="pcImg5" alt="Premium">
         <button class="pc-nav prev" onclick="pcNav('pcImg5',-1)">‹</button>
@@ -160,7 +160,7 @@
         <div class="pc-name"><span data-price="services.premium.label">Premium Detailing Package</span></div>
         <div class="pc-price"><sup>₹</sup><span data-price="services.premium.price">1499</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.premium.price_old">1999</span></span></div>
         <div class="pc-per">Per session · All vehicles</div>
-        <ul class="pc-feats">
+        <ul class="pc-feats" id="pcFeats_premium">
           <li class="pc-feat">Full Interior Vacuum (seats, carpets &amp; boot)</li>
           <li class="pc-feat">Carpet / Floor Mat Shampooing</li>
           <li class="pc-feat">Dashboard, Trims &amp; Panel Polish</li>
@@ -177,7 +177,7 @@
         <button class="pc-btn g-gold" onclick="location.href='booking.html?service=Premium'">Book Now</button>
       </div>
     </div>
-    <div class="price-card">
+    <div class="price-card" id="pcCard_hatchback">
       <div class="pc-img-wrap">
         <img class="pc-img" id="pcImg1" alt="Hatchback">
         <button class="pc-nav prev" onclick="pcNav('pcImg1',-1)">‹</button>
@@ -187,7 +187,7 @@
         <div class="pc-name">🚗 <span data-price="services.hatchback.label">Hatchback</span></div>
         <div class="pc-price"><sup>₹</sup><span data-price="services.hatchback.price_min">299</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.hatchback.price_old">999</span></span></div>
         <div class="pc-per">Basic / up to ₹<span data-price="services.hatchback.price_max">399</span> Full</div>
-        <ul class="pc-feats">
+        <ul class="pc-feats" id="pcFeats_hatchback">
           <li class="pc-feat">Exterior foam wash</li>
           <li class="pc-feat">Wheels &amp; tyres</li>
           <li class="pc-feat">Window cleaning</li>
@@ -197,7 +197,7 @@
         <button class="pc-btn g-blue" onclick="location.href='booking.html?service=Hatchback'">Book Now</button>
       </div>
     </div>
-    <div class="price-card featured">
+    <div class="price-card featured" id="pcCard_sedan">
       <div class="pc-img-wrap">
         <img class="pc-img" id="pcImg2" alt="Sedan">
         <button class="pc-nav prev" onclick="pcNav('pcImg2',-1)">‹</button>
@@ -208,7 +208,7 @@
         <div class="pc-name">🚙 <span data-price="services.sedan.label">Sedan</span></div>
         <div class="pc-price"><sup>₹</sup><span data-price="services.sedan.price_min">399</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.sedan.price_old">999</span></span></div>
         <div class="pc-per">Basic / up to ₹<span data-price="services.sedan.price_max">999</span> Full</div>
-        <ul class="pc-feats">
+        <ul class="pc-feats" id="pcFeats_sedan">
           <li class="pc-feat">Full exterior wash</li>
           <li class="pc-feat">Interior vacuum</li>
           <li class="pc-feat">Dashboard wipe</li>
@@ -218,7 +218,7 @@
         <button class="pc-btn g-purple" onclick="location.href='booking.html?service=Sedan'">Book Now</button>
       </div>
     </div>
-    <div class="price-card featured">
+    <div class="price-card featured" id="pcCard_fabriccare">
       <div class="pc-img-wrap">
         <img class="pc-img" id="pcImg6" alt="Fabric Leather Care">
         <button class="pc-nav prev" onclick="pcNav('pcImg6',-1)">‹</button>
@@ -229,7 +229,7 @@
         <div class="pc-name">🧵 <span data-price="services.fabriccare.label">Fabric / Leather Care</span></div>
         <div class="pc-price"><sup>₹</sup><span data-price="services.fabriccare.price">1199</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.fabriccare.price_old">1699</span></span></div>
         <div class="pc-per">Per session · All vehicles</div>
-        <ul class="pc-feats">
+        <ul class="pc-feats" id="pcFeats_fabriccare">
           <li class="pc-feat">Deep dry cleaning of all fabric/leather seats (edges, stitching &amp; corners included)</li>
           <li class="pc-feat">Roof (headliner) cleaning using safe dry method</li>
           <li class="pc-feat">Complete interior vacuuming (under seats, carpets &amp; boot area)</li>
@@ -243,7 +243,7 @@
         <button class="pc-btn g-rose" onclick="location.href='booking.html?service=FabricCare'">Book Now</button>
       </div>
     </div>
-    <div class="price-card">
+    <div class="price-card" id="pcCard_suv">
       <div class="pc-img-wrap">
         <img class="pc-img" id="pcImg3" alt="SUV">
         <button class="pc-nav prev" onclick="pcNav('pcImg3',-1)">‹</button>
@@ -253,7 +253,7 @@
         <div class="pc-name">🚐 <span data-price="services.suv.label">SUV / MUV</span></div>
         <div class="pc-price"><sup>₹</sup><span data-price="services.suv.price_min">999</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.suv.price_old">999</span></span></div>
         <div class="pc-per">Basic / up to ₹<span data-price="services.suv.price_max">699</span> Full</div>
-        <ul class="pc-feats">
+        <ul class="pc-feats" id="pcFeats_suv">
           <li class="pc-feat">Full exterior wash</li>
           <li class="pc-feat">All wheels &amp; tyres</li>
           <li class="pc-feat">Interior vacuum</li>
@@ -263,7 +263,7 @@
         <button class="pc-btn g-teal" onclick="location.href='booking.html?service=SUV'">Book Now</button>
       </div>
     </div>
-    <div class="price-card">
+    <div class="price-card" id="pcCard_bike">
       <div class="pc-img-wrap">
         <img class="pc-img" id="pcImg4" alt="Bike">
         <button class="pc-nav prev" onclick="pcNav('pcImg4',-1)">‹</button>
@@ -273,7 +273,7 @@
         <div class="pc-name">🏍️ <span data-price="services.bike.label">Bike / Scooter</span></div>
         <div class="pc-price"><sup>₹</sup><span data-price="services.bike.price">250</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.bike.price_old">350</span></span></div>
         <div class="pc-per">Full exterior wash</div>
-        <ul class="pc-feats">
+        <ul class="pc-feats" id="pcFeats_bike">
           <li class="pc-feat">Full body wash</li>
           <li class="pc-feat">Wheels &amp; chain area</li>
           <li class="pc-feat">Engine cover clean</li>
@@ -347,7 +347,7 @@
     <div class="why-card"><div class="wico">🛡️</div><h4>Scratch-Free</h4><p>Premium microfiber — zero marks on paint</p></div>
     <div class="why-card"><div class="wico">💧</div><h4>Less Water</h4><p>Eco-friendly — more shine, less waste</p></div>
     <div class="why-card"><div class="wico">👨‍🔧</div><h4>Trained Staff</h4><p>Every member professionally trained</p></div>
-    <div class="why-card"><div class="wico">✅</div><h4>100% Satisfaction</h4><p>Not happy? We redo before leaving</p></div>
+    <div class="why-card"><div class="wico">🏆</div><h4>World-Class Products</h4><p>Premium, safe formulas for a spotless, long-lasting finish</p></div>
   </div>
 </div>
 

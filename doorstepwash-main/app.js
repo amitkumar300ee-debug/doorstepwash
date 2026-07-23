@@ -257,12 +257,49 @@ async function loadPricing() {
         if (val && typeof val === "object" && key in val) val = val[key];
         else { val = undefined; break; }
       }
-      if (val !== undefined) el.textContent = val;
+      if (val !== undefined) {
+        el.textContent = val;
+        const lastKey = path[path.length - 1];
+        if (lastKey === "price_old" && (!val || Number(val) <= 0) && el.parentElement) {
+          el.parentElement.style.display = "none";
+        } else if (lastKey === "price_old" && el.parentElement) {
+          el.parentElement.style.display = "";
+        }
+      }
     });
+    applyPricingCardLayout(p);
     return p;
   } catch (e) {
     return null;
   }
+}
+
+// ───────────── ADMIN-CONTROLLED PRICING CARD HIGHLIGHT + ORDER ─────────────
+function applyPricingCardLayout(p) {
+  try {
+    const s = p.services || {};
+    const wrap = document.querySelector(".price-scroll");
+    if (!wrap) return;
+    const cardKeys = ["hatchback", "sedan", "fabriccare", "premium", "suv", "bike"];
+    const cards = [];
+    cardKeys.forEach((key) => {
+      const el = document.getElementById("pcCard_" + key);
+      if (!el) return;
+      const cfg = s[key] || {};
+      el.classList.toggle("featured", !!cfg.featured);
+      cards.push({ el, order: typeof cfg.order === "number" ? cfg.order : cardKeys.indexOf(key) });
+      if (Array.isArray(cfg.features) && cfg.features.length) {
+        const ul = document.getElementById("pcFeats_" + key);
+        if (ul) {
+          ul.innerHTML = cfg.features
+            .map((line) => `<li class="pc-feat">${String(line).replace(/</g, "&lt;")}</li>`)
+            .join("");
+        }
+      }
+    });
+    cards.sort((a, b) => a.order - b.order);
+    cards.forEach((c) => wrap.appendChild(c.el));
+  } catch (e) {}
 }
 
 // ───────────── REBUILD BOOKING SELECTS FROM PRICING ─────────────
