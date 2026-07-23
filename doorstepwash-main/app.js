@@ -288,6 +288,15 @@ function applyPricingCardLayout(p) {
       const cfg = s[key] || {};
       el.classList.toggle("featured", !!cfg.featured);
       cards.push({ el, order: typeof cfg.order === "number" ? cfg.order : cardKeys.indexOf(key) });
+      const badgeEl = document.getElementById("pcBadge_" + key);
+      if (badgeEl) {
+        if (cfg.badge && String(cfg.badge).trim()) {
+          badgeEl.textContent = cfg.badge;
+          badgeEl.style.display = "";
+        } else if (cfg.badge !== undefined) {
+          badgeEl.style.display = "none";
+        }
+      }
       if (Array.isArray(cfg.features) && cfg.features.length) {
         const ul = document.getElementById("pcFeats_" + key);
         if (ul) {

@@ -69,7 +69,7 @@
     <!-- LOGIN FORM -->
     <div id="loginForm">
       <h2 style="font-size:.95rem;margin-bottom:14px">Welcome back! 👋</h2>
-      <div class="fg"><label>Mobile Number *</label><input class="fc" type="tel" id="l_phone" placeholder="+91 XXXXX XXXXX" maxlength="15"><span class="ferr" id="le_phone">Enter a valid number</span></div>
+      <div class="fg"><label>Email *</label><input class="fc" type="email" id="l_email" placeholder="you@example.com"><span class="ferr" id="le_email">Enter a valid email address</span></div>
       <div class="fg"><label>Password *</label><input class="fc" type="password" id="l_password" placeholder="Enter your password"><span class="ferr" id="le_password">Enter your password</span></div>
       <button class="sub-btn" id="loginBtn" onclick="doLogin()"><span id="loginTxt">🔓 Log In</span><div class="sp" id="loginSp"></div></button>
       <div style="text-align:center;margin-top:12px">
@@ -221,9 +221,9 @@ function showAuthToast(id, type, msg){
 }
 
 async function doLogin(){
-  const phone = document.getElementById('l_phone').value.trim();
+  const email = document.getElementById('l_email').value.trim();
   const pass = document.getElementById('l_password').value;
-  const ok = vf('l_phone','le_phone', /^[0-9+\s\-]{7,15}$/.test(phone)) & vf('l_password','le_password', pass.length>0);
+  const ok = vf('l_email','le_email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) & vf('l_password','le_password', pass.length>0);
   if(!ok) return;
 
   if(!BACKEND_URL){ showAuthToast('loginToast','bad','⚠️ Backend URL not set. Open app.js and set BACKEND_URL first.'); return; }
@@ -232,7 +232,7 @@ async function doLogin(){
   btn.disabled=true; txt.textContent='Logging in…'; sp.style.display='block';
 
   try{
-    const j = await apiPost('/api/login', {phone, password: pass});
+    const j = await apiPost('/api/login', {email, password: pass});
     if(j.success){
       setToken(j.token);
       setUser(j.user);
