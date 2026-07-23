@@ -150,7 +150,7 @@ button{cursor:pointer;font-family:var(--font);border:none}
 /* PRICING SCROLL */
 .price-scroll{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;scroll-snap-type:x mandatory}
 .price-scroll::-webkit-scrollbar{display:none}
-.price-card{position:relative;min-width:190px;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;scroll-snap-align:start;flex-shrink:0;transition:border-color .2s}
+.price-card{position:relative;width:190px;min-width:190px;max-width:190px;background:var(--card);border:1.5px solid var(--border);border-radius:var(--r);overflow:hidden;scroll-snap-align:start;flex-shrink:0;transition:border-color .2s}
 .price-card:hover{border-color:var(--teal3)}
 .price-card.featured{background:linear-gradient(145deg,#003D35,#005046);border:2px solid var(--yellow);box-shadow:0 0 0 3px rgba(255,214,0,.18),0 8px 20px rgba(0,0,0,.12)}
 .pc-img{width:100%;height:108px;object-fit:cover;object-position:center;display:block}
@@ -172,7 +172,7 @@ button{cursor:pointer;font-family:var(--font);border:none}
 .pc-feats::-webkit-scrollbar{width:4px}
 .pc-feats::-webkit-scrollbar-thumb{background:var(--border);border-radius:10px}
 .price-card.featured .pc-feats::-webkit-scrollbar-thumb{background:rgba(255,255,255,.25)}
-.pc-feat{display:flex;align-items:center;gap:5px;font-size:.69rem;color:var(--gray)}
+.pc-feat{display:flex;align-items:flex-start;gap:5px;font-size:.69rem;color:var(--gray);word-break:break-word;overflow-wrap:break-word}
 .price-card.featured .pc-feat{color:rgba(255,255,255,.75)}
 .pc-feat::before{content:'✓';color:var(--teal);font-weight:800;font-size:.67rem;flex-shrink:0}
 .price-card.featured .pc-feat::before{color:var(--teal3)}

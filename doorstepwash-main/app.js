@@ -39,7 +39,7 @@ async function apiPost(path, body, auth = false) {
 async function apiGet(path, auth = false) {
   const headers = {};
   if (auth) headers["Authorization"] = "Bearer " + getToken();
-  const res = await fetch(BACKEND_URL + path, { headers });
+  const res = await fetch(BACKEND_URL + path, { headers, cache: "no-store" });
   return res.json();
 }
 

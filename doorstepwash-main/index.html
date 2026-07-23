@@ -152,6 +152,33 @@
   <div class="price-scroll">
     <div class="price-card">
       <div class="pc-img-wrap">
+        <img class="pc-img" id="pcImg5" alt="Premium">
+        <button class="pc-nav prev" onclick="pcNav('pcImg5',-1)">‹</button>
+        <button class="pc-nav next" onclick="pcNav('pcImg5',1)">›</button>
+      </div>
+      <div class="pc-body">
+        <div class="pc-name"><span data-price="services.premium.label">Premium Detailing Package</span></div>
+        <div class="pc-price"><sup>₹</sup><span data-price="services.premium.price">1499</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.premium.price_old">1999</span></span></div>
+        <div class="pc-per">Per session · All vehicles</div>
+        <ul class="pc-feats">
+          <li class="pc-feat">Full Interior Vacuum (seats, carpets &amp; boot)</li>
+          <li class="pc-feat">Carpet / Floor Mat Shampooing</li>
+          <li class="pc-feat">Dashboard, Trims &amp; Panel Polish</li>
+          <li class="pc-feat">Door Panels, Console &amp; AC Vent Cleaning</li>
+          <li class="pc-feat">Safe Engine Bay Cleaning (battery area protected)</li>
+          <li class="pc-feat">Body &amp; Glass Polishing for Enhanced Shine and Clear Visibility</li>
+          <li class="pc-feat">Underbody Cleaning</li>
+          <li class="pc-feat">Plastic Restoration Polish for Faded Parts</li>
+          <li class="pc-feat">Door Edges, Fuel Lid, Dicky Jamb Cleaning &amp; Logo Detailing</li>
+          <li class="pc-feat">Hidden Gap Detailing (windshield trims, etc.)</li>
+          <li class="pc-feat">Free Paper Mats &amp; Car Perfume Spray</li>
+          <li class="pc-feat">Tyre Polish &amp; Dressing for Rich Black Look</li>
+        </ul>
+        <button class="pc-btn g-gold" onclick="location.href='booking.html?service=Premium'">Book Now</button>
+      </div>
+    </div>
+    <div class="price-card">
+      <div class="pc-img-wrap">
         <img class="pc-img" id="pcImg1" alt="Hatchback">
         <button class="pc-nav prev" onclick="pcNav('pcImg1',-1)">‹</button>
         <button class="pc-nav next" onclick="pcNav('pcImg1',1)">›</button>
@@ -214,33 +241,6 @@
           <li class="pc-feat">Full interior detailing for a fresh finish</li>
         </ul>
         <button class="pc-btn g-rose" onclick="location.href='booking.html?service=FabricCare'">Book Now</button>
-      </div>
-    </div>
-    <div class="price-card">
-      <div class="pc-img-wrap">
-        <img class="pc-img" id="pcImg5" alt="Premium">
-        <button class="pc-nav prev" onclick="pcNav('pcImg5',-1)">‹</button>
-        <button class="pc-nav next" onclick="pcNav('pcImg5',1)">›</button>
-      </div>
-      <div class="pc-body">
-        <div class="pc-name"><span data-price="services.premium.label">Premium Detailing Package</span></div>
-        <div class="pc-price"><sup>₹</sup><span data-price="services.premium.price">1499</span> <span style="text-decoration:line-through;color:#aaa;font-size:.7em;font-weight:500">₹<span data-price="services.premium.price_old">1999</span></span></div>
-        <div class="pc-per">Per session · All vehicles</div>
-        <ul class="pc-feats">
-          <li class="pc-feat">Full Interior Vacuum (seats, carpets &amp; boot)</li>
-          <li class="pc-feat">Carpet / Floor Mat Shampooing</li>
-          <li class="pc-feat">Dashboard, Trims &amp; Panel Polish</li>
-          <li class="pc-feat">Door Panels, Console &amp; AC Vent Cleaning</li>
-          <li class="pc-feat">Safe Engine Bay Cleaning (battery area protected)</li>
-          <li class="pc-feat">Body &amp; Glass Polishing for Enhanced Shine and Clear Visibility</li>
-          <li class="pc-feat">Underbody Cleaning</li>
-          <li class="pc-feat">Plastic Restoration Polish for Faded Parts</li>
-          <li class="pc-feat">Door Edges, Fuel Lid, Dicky Jamb Cleaning &amp; Logo Detailing</li>
-          <li class="pc-feat">Hidden Gap Detailing (windshield trims, etc.)</li>
-          <li class="pc-feat">Free Paper Mats &amp; Car Perfume Spray</li>
-          <li class="pc-feat">Tyre Polish &amp; Dressing for Rich Black Look</li>
-        </ul>
-        <button class="pc-btn g-gold" onclick="location.href='booking.html?service=Premium'">Book Now</button>
       </div>
     </div>
     <div class="price-card">
@@ -407,6 +407,7 @@
     <div class="faqq"><button onclick="faqT(this)">Can I book same day? <span class="arr">▼</span></button><div class="ans"><p>Yes! Same-day slots available. For urgent bookings call or WhatsApp 9469793349 directly.</p></div></div>
     <div class="faqq"><button onclick="faqT(this)">What if I'm not satisfied? <span class="arr">▼</span></button><div class="ans"><p>We fix it before we leave — no questions asked. 100% satisfaction guarantee. You only pay when happy.</p></div></div>
     <div class="faqq"><button onclick="faqT(this)">Can I cancel my booking? <span class="arr">▼</span></button><div class="ans"><p>Yes, you can cancel any pending or confirmed booking anytime from the "My Bookings" page before the service starts — no charges for cancellation.</p></div></div>
+    <div class="faqq"><button onclick="faqT(this)">Why choose DoorstepsWash? <span class="arr">▼</span></button><div class="ans"><p>We use world-class products for every wash and detailing service, trusted staff, and doorstep convenience — so your vehicle gets premium care without you having to leave home.</p></div></div>
   </div>
 </div>
 
@@ -485,8 +486,8 @@
   setImg('slideImg3', IMG.slide3);
   setImg('svcImg1', IMG.new_exterior);
   setImg('svcImg2', IMG.steam);
-  setImg('svcImg3', IMG.interior);
-  setImg('svcImg4', IMG.detailing);
+  setImg('svcImg3', IMG.new_interiorclean);
+  setImg('svcImg4', IMG.new_cardetailing);
   setImg('svcImg5', IMG.new_headlight);
   setImg('svcImg6', IMG.new_glass);
   setImg('svcImg7', IMG.new_bikewash);
