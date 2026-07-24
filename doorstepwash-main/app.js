@@ -100,7 +100,7 @@ function faqT(btn) {
 }
 
 // ───────────── HERO SLIDER ─────────────
-let _slideCur = 0, _slideTot = 3, _slideTimer;
+let _slideCur = 0, _slideTot = 4, _slideTimer;
 function goSlide(n) {
   _slideCur = n;
   const el = document.getElementById("slides");
@@ -136,6 +136,27 @@ function vf(id, eid, ok) {
   el.classList.remove("err"); er.style.display = "none"; return true;
 }
 
+// ───────────── TIER (BASIC/FULL) SELECTOR FOR RANGED SERVICES ─────────────
+function updateTierOptions() {
+  const svcSel = document.getElementById("f_service");
+  const tierGroup = document.getElementById("f_tier_group");
+  const tierSel = document.getElementById("f_tier");
+  if (!svcSel || !tierGroup || !tierSel) return;
+  const val = svcSel.value;
+  const m = val.match(/₹(\d+)\s*to\s*₹(\d+)/);
+  if (m) {
+    const min = m[1], max = m[2];
+    tierSel.innerHTML =
+      `<option value="">— Select —</option>` +
+      `<option value="Basic – ₹${min}">Basic – ₹${min}</option>` +
+      `<option value="Full – ₹${max}">Full – ₹${max}</option>`;
+    tierGroup.style.display = "";
+  } else {
+    tierGroup.style.display = "none";
+    tierSel.value = "";
+  }
+}
+
 // ───────────── BOOKING SUBMIT ─────────────
 async function bookNow() {
   const nm = document.getElementById("f_name").value.trim();
@@ -144,13 +165,17 @@ async function bookNow() {
   const dt = document.getElementById("f_date").value;
   const tm = document.getElementById("f_time").value;
   const ad = document.getElementById("f_address").value.trim();
-  const ao = document.getElementById("f_addon").value;
+  const ao = Array.from(document.querySelectorAll('#f_addon_group input:checked')).map((c) => c.value).join(", ") || "None";
   const nt = document.getElementById("f_notes").value.trim();
+  const tierGroup = document.getElementById("f_tier_group");
+  const tierVisible = tierGroup && tierGroup.style.display !== "none";
+  const tier = tierVisible ? document.getElementById("f_tier").value : "";
 
   const ok =
     vf("f_name", "e_name", nm.length >= 2) &
     vf("f_phone", "e_phone", /^[0-9+\s\-]{7,15}$/.test(ph)) &
     vf("f_service", "e_service", sv !== "") &
+    (tierVisible ? vf("f_tier", "e_tier", tier !== "") : 1) &
     vf("f_date", "e_date", dt !== "") &
     vf("f_time", "e_time", tm !== "") &
     vf("f_address", "e_address", ad.length >= 8);
@@ -162,7 +187,7 @@ async function bookNow() {
   btn.disabled = true; txt.textContent = "Submitting…"; sp.style.display = "block";
 
   const data = {
-    name: nm, phone: ph, service: sv, addon: ao, date: dt, time: tm,
+    name: nm, phone: ph, service: sv + (tier ? ` (${tier})` : ""), addon: ao, date: dt, time: tm,
     address: ad, notes: nt || "None",
   };
 
@@ -209,7 +234,9 @@ function showOk(d, wa, bookingId) {
   }
   t.style.display = "block";
   ["f_name", "f_phone", "f_address", "f_notes"].forEach((id) => { const e = document.getElementById(id); if (e) e.value = ""; });
-  ["f_service", "f_date", "f_time", "f_addon"].forEach((id) => { const e = document.getElementById(id); if (e) e.value = ""; });
+  ["f_service", "f_date", "f_time"].forEach((id) => { const e = document.getElementById(id); if (e) e.value = ""; });
+  document.querySelectorAll('#f_addon_group input:checked').forEach((c) => (c.checked = false));
+  updateTierOptions();
   setTimeout(() => (t.style.display = "none"), 9000);
 }
 function showBad(m) {
@@ -232,6 +259,7 @@ function prefillBookingForm() {
         }
       }
     }
+    updateTierOptions();
   }
   const user = getUser();
   if (user) {
@@ -315,7 +343,6 @@ function applyPricingCardLayout(p) {
 function rebuildBookingSelects(pricing) {
   if (!pricing) return;
   const svcSel = document.getElementById("f_service");
-  const addonSel = document.getElementById("f_addon");
 
   if (svcSel) {
     const s = pricing.services || {};
@@ -329,19 +356,21 @@ function rebuildBookingSelects(pricing) {
     const prevValue = svcSel.value;
     svcSel.innerHTML = opts.join("");
     if (prevValue) svcSel.value = prevValue;
+    updateTierOptions();
   }
 
-  if (addonSel) {
+  const addonGroup = document.getElementById("f_addon_group");
+  if (addonGroup) {
     const a = pricing.addons || {};
-    const opts = ['<option value="None">No add-ons</option>'];
+    const prevChecked = new Set(Array.from(addonGroup.querySelectorAll("input:checked")).map((c) => c.value));
+    const rows = [];
     for (const key in a) {
       const item = a[key];
-      const suffix = key === "interior_deep_clean" ? "+" : "";
-      opts.push(`<option value="${item.label} – ₹${item.price}${suffix}">${item.label} – ₹${item.price}${suffix}</option>`);
+      const val = `${item.label} – ₹${item.price}`;
+      const checked = prevChecked.has(val) ? " checked" : "";
+      rows.push(`<label class="addon-check"><input type="checkbox" value="${val}"${checked}> ${val}</label>`);
     }
-    const prevValue = addonSel.value;
-    addonSel.innerHTML = opts.join("");
-    if (prevValue) addonSel.value = prevValue;
+    if (rows.length) addonGroup.innerHTML = rows.join("");
   }
 }
 

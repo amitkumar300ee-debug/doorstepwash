@@ -62,6 +62,16 @@
 <div class="hero-slider">
   <div class="slides" id="slides">
     <div class="slide">
+      <img class="slide-img" id="slideImg0" alt="DoorstepsWash Branded Car">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <div class="slide-tag">🚗 Jammu's Own</div>
+        <div class="slide-h" data-price="slides.slide0.title">DoorstepsWash Jammu</div>
+        <div class="slide-sub" data-price="slides.slide0.subtitle">We Clean, You Relax — Spot us around the city</div>
+        <a href="booking.html" class="slide-book">Book Now →</a>
+      </div>
+    </div>
+    <div class="slide">
       <img class="slide-img" id="slideImg1" alt="Exterior Wash">
       <div class="slide-overlay"></div>
       <div class="slide-content">
@@ -99,6 +109,7 @@
     <div class="dot active" onclick="goSlide(0)"></div>
     <div class="dot" onclick="goSlide(1)"></div>
     <div class="dot" onclick="goSlide(2)"></div>
+    <div class="dot" onclick="goSlide(3)"></div>
   </div>
 </div>
 
@@ -485,6 +496,7 @@
       if (el && val) el.src = val;
     } catch (e) {}
   }
+  setImg('slideImg0', IMG.new_herobrand);
   setImg('slideImg1', IMG.slide1);
   setImg('slideImg2', IMG.slide2);
   setImg('slideImg3', IMG.slide3);

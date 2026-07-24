@@ -221,6 +221,11 @@ button{cursor:pointer;font-family:var(--font);border:none}
 .fc::placeholder{color:#C5C9CE}
 .fc option{background:#fff}
 textarea.fc{resize:vertical;min-height:78px}
+.addon-check-group{background:#F8FAFB;border:1.5px solid var(--border);border-radius:10px;max-height:230px;overflow-y:auto}
+.addon-check{display:flex;align-items:center;gap:10px;padding:11px 13px;font-size:.83rem;color:var(--dark);border-bottom:1px solid var(--border);cursor:pointer;transition:background .15s}
+.addon-check:last-child{border-bottom:none}
+.addon-check:hover{background:#eef6f4}
+.addon-check input{width:17px;height:17px;accent-color:var(--teal);flex-shrink:0;cursor:pointer}
 .fc.err{border-color:#EF4444}
 .ferr{font-size:.68rem;color:#EF4444;margin-top:2px;display:none}
 .frow2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
